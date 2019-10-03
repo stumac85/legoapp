@@ -76,7 +76,12 @@ class RebrickableAPI{
 				$oRequest->request = $curl_url;
 				$oRequest->dateCreated = Carbon::today();
 				$oRequest->response = $response;
-				$oRequest->save();
+				try{
+					$oRequest->save();
+				} catch(\Illuminate\Database\QueryException $ex){
+					//some parts cause an error when storing response data. In this case we will skip caching the data as the response is correct.
+				}
+				
 			}
 
 			curl_close($ch);

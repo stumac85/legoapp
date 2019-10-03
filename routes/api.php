@@ -12,11 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::post('/lego/getResults', 'legoapp@search');
-Route::post('/lego/getColourByPart', 'legoapp@getColourByPart');
+Route::post('/lego/getResults', 'legoapi@search');
+Route::post('/lego/getColourByPart', 'legoapi@getColourByPart');
 

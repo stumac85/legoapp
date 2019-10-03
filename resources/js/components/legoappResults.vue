@@ -406,6 +406,15 @@
         }
     }
 
+    /***
+     * 
+     * function remove from basket
+     * Functionality: removes a part item from the basket section when the "remove button is clicked"
+     * Arrtibutes passed are identifier (data.sessionData set in addItem) and cardID (also set in addItem:  var cardID = 'card_' + part_num + color_id)
+     * 1. Makes an AJAX call to remove the part from session data
+     * 2. Reduces the basket count and displays a message if necessary
+     * 
+    ***/
     function removeFromBasket(identifier,cardID){
         
         $.ajax({
@@ -432,11 +441,26 @@
         });
     }
 
+    /***
+     * 
+     * function launch modal
+     * Functionality: launches a modal with the corresponding message
+     * 
+    ***/
     function launchModal(message){
         $("#error-modal-body").html(message);
         $('#error-modal').modal();
     }
 
+    /***
+     * 
+     * function getColors
+     * Functionality: displays colour options based on a Lego part number
+     * 1. Makes an AJAX call to get json data of colors based on the part number (part_num)
+     * 2. creates cards for each colour with the corresponding image
+     * 3. displays an error if there is no colour data or part data (can happen with custom parts)
+     * 
+    ***/
     function getColors(part_num){
         $.ajax({
                 method: "POST",
@@ -473,6 +497,15 @@
         });
     }
 
+    /***
+     * 
+     * function add color
+     * Functionality: add an item to the basket based on colour selection
+     * part_num: string provided by rebrickable API (unique)
+     * color_id: integer referring to the chosen colour
+     * color_name: string representation of the chosen colour
+     * 
+    ***/
     function addColor(part_num,color_id,color_name){
         selectedColor = color_id;
         selectedColorName = color_name;

@@ -14,13 +14,7 @@
 
 
 Route::get('/', 'legoapp@index');
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/samples/legoapp', 'legoapp@index');
 Route::post('/samples/legoapp/addItem', 'legoapp@addItem');
 Route::post('/samples/legoapp/removeItem', 'legoapp@removeItem');
 Route::post('/samples/legoapp/getSets', 'legoapp@getSets');
-Route::get('/samples/legoapp/print/{id}', 'legoapp@pdf');
+Route::get('/samples/legoapp/print/{id}', 'legoapp@printView');
