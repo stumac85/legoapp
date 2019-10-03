@@ -1,0 +1,154 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+@mixin horizontal-gradient($from, $to, $stop: 100%) {
+    /* fallback/image non-cover color */
+    background-color: $from;
+
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(left, $from 0%, $to $stop);
+
+    /* Safari 4+, Chrome 1+ */
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0%, $from),
+        color-stop($stop, $to)
+    );
+
+    /* Safari 5.1+, Chrome 10+ */
+    background-image: -webkit-linear-gradient(left, $from 0%, $to $stop);
+
+    /* Opera 11.10+ */
+    background-image: -o-linear-gradient(left, $from 0%, $to $stop);
+
+    /* IE10+ */
+    background: -ms-linear-gradient(left, $from 0%, $to $stop);
+
+    /* Standard */
+    background: linear-gradient(to right, $from 0%, $to $stop);
+
+    /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=1 );
+}
+
+main {
+    margin-top: 5em;
+}
+
+.navbar-laravel {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.nav-gradient {
+    @include horizontal-gradient(rgb(58, 121, 60), transparent);
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+footer p {
+    margin-bottom: 0.25rem;
+}
+
+/* legoapp css */
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+#legoapp-basket {
+    width: 100%;
+}
+
+.submit-box-sets {
+    margin: 1em 0;
+    padding: 1em;
+    background: #fff7b4;
+    text-align: right;
+}
+
+.legoapp-basket,
+.legoapp {
+    background: #fffbdc;
+    width: 90%;
+    border: 1px solid #b5b5b5;
+    margin-bottom: 1em;
+}
+
+.legoapp-basket > div > p {
+    font-weight: bold;
+    font-size: 2em;
+    margin: 1em;
+}
+
+#legoapp-basket-items > .card {
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .legosearch {
+        border-right: 1px solid #b5b5b5;
+        padding: 1em;
+    }
+}
+@media (max-width: 768px) {
+    .legosearch {
+        border-bottom: 1px solid #b5b5b5;
+        padding: 1em;
+    }
+
+    .legoresults {
+        display: none;
+    }
+
+    .card {
+        text-align: center;
+    }
+}
+
+.legosearch > div > h5 {
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(10, 46, 10);
+}
+
+.legoresults {
+    padding: 1em;
+}
+
+.submit-box {
+    text-align: right;
+}
+
+.lego-result {
+    display: none;
+}
+
+.lego-result > thead > tr > th {
+    border: none;
+}
+
+.lego-result > thead > tr {
+    border-bottom: 1px solid #b5b5b5;
+}
+
+.lego-result > tbody > tr > th,
+.lego-result > tbody > tr > td {
+    border: none;
+}
+
+.lego-result > tbody > tr {
+    border-bottom: 1px solid #b5b5b5;
+}
